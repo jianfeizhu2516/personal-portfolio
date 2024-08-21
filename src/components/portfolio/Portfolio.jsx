@@ -5,18 +5,25 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 const items = [
   {
     id: 1,
+    title: "Online Pizza Shop Proejct",
+    img: "/pizzaShop.png",
+    demoLink:'https://food-delivery-web-peach.vercel.app/',
+    desc: "An online pizza shop where users can register, login, place order using integrated Stripe payment page",
+  },
+  {
+    id: 2,
     title: "E-Commerce Proejct",
     img: "/ecommerce.png",
     desc: "E-Commerce project based on React",
   },
   {
-    id: 2,
+    id: 3,
     title: "Real-time Chat App",
     img: "/chatapp.png",
     desc: "Real-time chat project based on React",
   },
   {
-    id: 3,
+    id: 4,
     title: "Treatment planning system",
     img: "/tps.jpg",
     desc: "Previous work experience- a web treatment planning system for radiotherapy based on React",
@@ -32,6 +39,9 @@ const Single = ({ item }) => {
 
   const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
 
+  const goToDemo = (demoLink)=>{
+    window.location.href = demoLink;
+  }
   return (
     <section>
       <div className="container">
@@ -42,7 +52,7 @@ const Single = ({ item }) => {
           <motion.div className="textContainer" style={{y}}>
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
-            <button>See Demo</button>
+            <button onClick={()=>goToDemo(item.demoLink)}>See Demo</button>
           </motion.div>
         </div>
       </div>
